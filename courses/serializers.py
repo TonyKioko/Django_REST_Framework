@@ -28,12 +28,12 @@ class ReviewSerializer(serializers.ModelSerializer):
         
         
 class CourseSerializer(serializers.ModelSerializer):
-    # reviews = serializers.PrimaryKeyRelatedField(many=True, 
-    #                                               read_only=True
-    #                                        )
-    reviews = ReviewSerializer(many=True, 
+    reviews = serializers.PrimaryKeyRelatedField(many=True, 
                                                   read_only=True
                                            )
+    # reviews = ReviewSerializer(many=True, 
+    #                                               read_only=True
+    #                                        )
     # reviews = serializers.HyperlinkedRelatedField(many=True, 
     #                                               read_only=True,
     #                                               view_name='course_detail'
