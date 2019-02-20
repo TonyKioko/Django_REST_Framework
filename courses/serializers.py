@@ -31,7 +31,13 @@ class CourseSerializer(serializers.ModelSerializer):
     # reviews = serializers.PrimaryKeyRelatedField(many=True, 
     #                                               read_only=True
     #                                        )
-    
+    reviews = ReviewSerializer(many=True, 
+                                                  read_only=True
+                                           )
+    # reviews = serializers.HyperlinkedRelatedField(many=True, 
+    #                                               read_only=True,
+    #                                               view_name='course_detail'
+    #                                        )
     # average_rating = serializers.SerializerMethodField()
     
     class Meta:
@@ -39,7 +45,7 @@ class CourseSerializer(serializers.ModelSerializer):
             'id',
             'title',
             'url',
-            # 'reviews',
+            'reviews',
             # 'average_rating'
         )
         model = models.Course
